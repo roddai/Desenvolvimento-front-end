@@ -52,16 +52,16 @@ h1 span {
   margin: 0px 5px;
 }
 
-#d1 {
+.d1 {
   background-color: #AA151B;
 }
 
-#d2 {
+.d2 {
   background-color: #F1BF00;
   flex-grow: 1;
 }
 
-#d3 {
+.d3 {
   background-color: #AA151B;
   flex-grow: 2;
 }
