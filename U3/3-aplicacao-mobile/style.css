@@ -127,9 +127,77 @@ ul {
   border-radius: 20px;
 }
 
-
 footer {
   text-align: center;
   margin: 20px 0px 60px;
   color: #AA151B;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 35px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    /* align-items: center; */
+  }
+
+  nav {
+    margin: 5px 0px;
+    padding: 0px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  ul {
+    /* max-width: 100%; */
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #presentation {
+    max-width: 85%;
+  }
+
+  #presentation li {
+    width: 80%;
+    margin: 5px;
+    padding: 15px;
+    font-size: 15px;
+  }
+
+  #presentation li:nth-child(1) {
+    align-self: center;
+  }
+
+  #presentation li:nth-child(2) {
+    align-self: center;
+  }
+  
+  #presentation li:nth-child(3) {
+    align-self: center;
+  }
+
+  #images {
+    flex-direction: column;
+  }
+  
+  #images div {
+    margin: 10px;
+  }
+
+  #images div img {
+    width: 260px;
+  }
+
+  footer {
+    max-width: 80%;
+    margin: 50px auto;
+  }
 }
