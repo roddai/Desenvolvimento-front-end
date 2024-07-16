@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif;
+}
+
+header {
+  padding: 15px 0px 15px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, rgba(65, 23, 142, 0.967) 56%, rgba(146, 19, 181, 0.572) 81%, rgb(198, 182, 227) 100%);
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 400;
+  color: orange;
+}
+
+nav {
+  background: linear-gradient(90deg, rgb(198, 182, 227) 26%, rgba(146, 19, 181, 0.572) 31%, rgba(65, 23, 142, 0.967) 100%);
+}
+
+#nav-section {
+  max-width: 20%;
+  margin: auto;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navElement a {
+  text-decoration: none;
+  color: white;
+  opacity: 80%;
+}
+
+.navElement a:hover {
+  opacity: 100%;
+  color: rgba(65, 23, 142, 0.967);
+}
+
+#generic-main {
+  max-width: 95%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  width: 75%;
+}
+
+.section-main {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.sectionElement {
+  background-color: rgb(229, 229, 240);
+  border-radius: 10px;
+  width: 330px;
+  height: 330px;
+  margin: 10px 0px;
+  padding: 10px 0px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionElement img {
+  max-width: 300px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.sectionElement p {
+  text-align: center;
+  margin: 5px;
+}
+
+button {
+  background-color: rgba(65, 23, 142, 0.967);
+  border-radius: 10px;
+  border: none;
+  padding: 7px;
+  color: orange;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+aside {
+  background-color: rgb(251, 241, 229);
+  border-radius: 20px;
+  padding: 30px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-inicial {
+  text-align: center;
+  font-size: 30px;
+  color: brown;
+}
+
+aside p {
+  margin-bottom: 10px;
+}
+
+aside img {
+  margin: 20px auto;
+  width: 250px;
+}
+
+#prod-destaque {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 15px 0px;
+  background: linear-gradient(90deg, rgb(198, 182, 227) 26%, rgba(146, 19, 181, 0.572) 31%, rgba(65, 23, 142, 0.967) 100%);
+  color: white;
+}
