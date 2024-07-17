@@ -30,3 +30,17 @@ prgf.style.fontFamily = "sans-serif"
 // Acessando elementos por meio de seleção múltipla
 const todosParagrafos = document.querySelectorAll('.text');
 todosParagrafos[1].style.textDecoration = "underline black";
+
+
+// Criação de elementos
+// a. cria o elemento
+const div = document.createElement('div');
+
+// b. adiciona propriedades e/ou ID/classe
+div.id = "div-id";
+div.className = "div-class";
+
+// c. Adição do elemento criado na página
+section.appendChild(div);
+
+console.log(div);
