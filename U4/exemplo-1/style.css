@@ -11,3 +11,12 @@ section {
 span {
   color: blue;
 }
+
+#titulo-h1 {
+  font-size: 55px;
+  color: rgb(35, 91, 175);
+  background-color: rgb(22, 211, 208);
+  border: 5px solid rgb(18, 38, 153);
+  border-radius: 10px;
+  padding: 20px;
+}
