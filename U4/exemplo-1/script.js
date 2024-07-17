@@ -43,4 +43,28 @@ div.className = "div-class";
 // c. Adição do elemento criado na página
 section.appendChild(div);
 
-console.log(div);
+// console.log(div);
+
+// Cria e adiciona imagem na div criada
+
+const imagem = document.createElement('img'); // a
+imagem.id = "img"; // b
+imagem.src = "./albertEinstein.jpg"; // b
+div.appendChild(imagem); // c
+
+
+// Eventos
+// Adicionar um evento de clique ao parágrafo
+paragrafos[1].addEventListener('click', function () {
+  console.log('Parágrafo clicado!');
+});
+
+// Adicionar um evento de mouseover ao título
+titulo.addEventListener('mouseover', function () {
+  this.style.color = 'blue'; // Alterar a cor do texto para azul
+});
+
+// Adicionar um evento de mouseout para restaurar a cor original
+titulo.addEventListener('mouseout', function () {
+  this.style.color = ''; // Restaurar a cor original do texto
+});

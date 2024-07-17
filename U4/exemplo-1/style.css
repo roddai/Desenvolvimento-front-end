@@ -24,8 +24,12 @@ span {
 #div-id {
   border-radius: 20px;
   border: 2px solid black;
-  width: 80%;
-  height: 5px;
-  background-color: orange;
+  background-color: rgb(16, 54, 109);
   margin-bottom: 20px;
+  padding: 10px;
+}
+
+#img {
+  width: 200px;
+  border-radius: 10px;
 }
