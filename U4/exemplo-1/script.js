@@ -68,3 +68,21 @@ titulo.addEventListener('mouseover', function () {
 titulo.addEventListener('mouseout', function () {
   this.style.color = ''; // Restaurar a cor original do texto
 });
+
+// Adiciona botão que muda a cor de fundo da section
+const botao = document.createElement('button');
+botao.id = "id-botao";
+botao.className = "class-botao";
+botao.innerText = "Mudar cor de fundo"
+section.appendChild(botao);
+
+botao.addEventListener('click', function () {
+  const rgb = [];
+
+  for (let index = 0; index < 3; index += 1) {
+    const aleatorio = Math.floor(Math.random() * 256);
+    rgb.push(aleatorio);
+  }
+
+  section.style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+});

@@ -33,3 +33,13 @@ span {
   width: 200px;
   border-radius: 10px;
 }
+
+#id-botao {
+  border-radius: 20px;
+  border: 2px solid black;
+  background-color: rgb(16, 54, 109);
+  color: orange;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding: 10px;
+}
