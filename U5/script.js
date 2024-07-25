@@ -123,87 +123,7 @@ function adicionaImagensMain() {
 }
 
 //Função que adiciona os elementos do Aside
-function adicionaElementosAside(event) {
-  // ETAPA 1
-  // criaElemento('p', `Código: ${dadosDosProdutos.produto[0].id}`, "codigo", elementoAside);
-  // criaElemento('p', `Produto: ${dadosDosProdutos.produto[0].nome}`, "produto", elementoAside);
-  // criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
-  // criaElemento('p', `Preço: ${dadosDosProdutos.produto[0].preco}`, "preco", elementoAside);
-  // criaElemento('p', `Descrição: ${dadosDosProdutos.produto[0].descricao}`, "descricao", elementoAside);
-  // criaElemento('p', `Fabricante: ${dadosDosProdutos.produto[0].fabricante}`, "fabricante", elementoAside);
-  // criaElemento('p', `Cor: ${dadosDosProdutos.produto[0].cor}`, "cor", elementoAside);
-
-  // ETAPA 2
-  // const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
-
-  // for (let index = 0; index < chavesDeProdutos.length; index += 1) {
-  //   let texto = chavesDeProdutos[index];
-
-  //   if (texto === "imagem") {
-  //     criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
-  //   } else {
-  //     criaElemento('p', `${texto}: ${dadosDosProdutos.produto[0][texto]}`, `prod-${texto}`, elementoAside);
-  //   }
-  // }
-
-  // ETAPA 3
-  // const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
-
-  // for (let index = 0; index < chavesDeProdutos.length; index += 1) {
-  //   let texto = chavesDeProdutos[index];
-
-  //   if (texto === "imagem") {
-  //     criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
-  //   } else {
-  //     criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${dadosDosProdutos.produto[0][texto]}`, `prod-${texto}`, elementoAside);
-  //   }
-  // }
-
-  // ETAPA 4
-  elementoAside.innerText = "";
-
-  const codigo = event.target.id;
-
-  const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
-
-  for (let index = 0; index < dadosDosProdutos.produto.length; index += 1) {
-    if (parseInt(codigo) === dadosDosProdutos.produto[index].codigo) {
-      const produtoSelecionado = dadosDosProdutos.produto[index];
-
-      for (let index = 0; index < chavesDeProdutos.length; index += 1) {
-        let texto = chavesDeProdutos[index];
-
-        if (texto === "imagem") {
-          criaElemento('img', '', '', "imagem-produto", elementoAside, produtoSelecionado.imagem);
-        } else {
-          criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${produtoSelecionado[texto]}`, '', `prod-${texto}`, elementoAside);
-        }
-      }
-    }
-  }
-  // for (let index = 0; index < chavesDeProdutos.length; index += 1) {
-  // let texto = chavesDeProdutos[index];
-
-  // if (texto === "imagem") {
-  //   criaElemento('img', '', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[codigo - 1].imagem);
-  // } else {
-  //   criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${dadosDosProdutos.produto[codigo - 1][texto]}`, '', `prod-${texto}`, elementoAside);
-  // }
-
-  // }
-}
-
-// Função que adiciona evento de clique nos botões
-function eventoNosBotoes(event) {
-  const buttons = document.querySelectorAll('button');
-
-  for (let index = 0; index < buttons.length; index += 1) {
-    buttons[index].addEventListener('click', adicionaElementosAside);
-  }
-}
-
-//Função que adiciona os elementos do Aside
-function adicionaTextoInicialAside() {
+function adicionaElementosIniciaisAside() {
   let tamanhoDoArray = dadosDosProdutos.produto.length;
 
   criaElemento('p', 'Produto em destaque', '', 'aside-inicial', elementoAside);
@@ -212,17 +132,97 @@ function adicionaTextoInicialAside() {
   criaElemento('button', 'Mais info', dadosDosProdutos.produto[tamanhoDoArray - 1].codigo, 'botao', elementoAside);
 }
 
-// Função que adiciona o textp do Footer
-function adicionaRodape() {
-  criaElemento('p', "2024 Innovate Tech Store. Todos os direitos reservados.", '', "", elementoFooter)
-}
+// //Função que adiciona os elementos do Aside
+// function adicionaElementosAside(event) {
+//   // ETAPA 1
+//   // criaElemento('p', `Código: ${dadosDosProdutos.produto[0].id}`, "codigo", elementoAside);
+//   // criaElemento('p', `Produto: ${dadosDosProdutos.produto[0].nome}`, "produto", elementoAside);
+//   // criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
+//   // criaElemento('p', `Preço: ${dadosDosProdutos.produto[0].preco}`, "preco", elementoAside);
+//   // criaElemento('p', `Descrição: ${dadosDosProdutos.produto[0].descricao}`, "descricao", elementoAside);
+//   // criaElemento('p', `Fabricante: ${dadosDosProdutos.produto[0].fabricante}`, "fabricante", elementoAside);
+//   // criaElemento('p', `Cor: ${dadosDosProdutos.produto[0].cor}`, "cor", elementoAside);
+
+//   // ETAPA 2
+//   // const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
+
+//   // for (let index = 0; index < chavesDeProdutos.length; index += 1) {
+//   //   let texto = chavesDeProdutos[index];
+
+//   //   if (texto === "imagem") {
+//   //     criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
+//   //   } else {
+//   //     criaElemento('p', `${texto}: ${dadosDosProdutos.produto[0][texto]}`, `prod-${texto}`, elementoAside);
+//   //   }
+//   // }
+
+//   // ETAPA 3
+//   // const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
+
+//   // for (let index = 0; index < chavesDeProdutos.length; index += 1) {
+//   //   let texto = chavesDeProdutos[index];
+
+//   //   if (texto === "imagem") {
+//   //     criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
+//   //   } else {
+//   //     criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${dadosDosProdutos.produto[0][texto]}`, `prod-${texto}`, elementoAside);
+//   //   }
+//   // }
+
+//   // ETAPA 4
+//   elementoAside.innerText = "";
+
+//   const codigo = event.target.id;
+
+//   const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
+
+//   for (let index = 0; index < dadosDosProdutos.produto.length; index += 1) {
+//     if (parseInt(codigo) === dadosDosProdutos.produto[index].codigo) {
+//       const produtoSelecionado = dadosDosProdutos.produto[index];
+
+//       for (let index = 0; index < chavesDeProdutos.length; index += 1) {
+//         let texto = chavesDeProdutos[index];
+
+//         if (texto === "imagem") {
+//           criaElemento('img', '', '', "imagem-produto", elementoAside, produtoSelecionado.imagem);
+//         } else {
+//           criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${produtoSelecionado[texto]}`, '', `prod-${texto}`, elementoAside);
+//         }
+//       }
+//     }
+//   }
+//   // for (let index = 0; index < chavesDeProdutos.length; index += 1) {
+//   // let texto = chavesDeProdutos[index];
+
+//   // if (texto === "imagem") {
+//   //   criaElemento('img', '', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[codigo - 1].imagem);
+//   // } else {
+//   //   criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${dadosDosProdutos.produto[codigo - 1][texto]}`, '', `prod-${texto}`, elementoAside);
+//   // }
+
+//   // }
+// }
+
+// // Função que adiciona evento de clique nos botões
+// function eventoNosBotoes(event) {
+//   const buttons = document.querySelectorAll('button');
+
+//   for (let index = 0; index < buttons.length; index += 1) {
+//     buttons[index].addEventListener('click', adicionaElementosAside);
+//   }
+// }
+
+// // Função que adiciona o textp do Footer
+// function adicionaRodape() {
+//   criaElemento('p', "2024 Innovate Tech Store. Todos os direitos reservados.", '', "", elementoFooter)
+// }
 
 // window.onload
 window.onload = function () {
   adicionaElementosHeader();
   adicionaElementosNav();
   adicionaImagensMain();
-  adicionaRodape();
-  adicionaTextoInicialAside();
-  eventoNosBotoes();
+  adicionaElementosIniciaisAside();
+  // adicionaRodape();
+  // eventoNosBotoes();
 }
