@@ -78,7 +78,7 @@ const elementoFooter = document.querySelector('footer');
 const elementoAside = document.querySelector('aside');
 
 // Função geral para criação de um elemento
-function criaElemento(qual, texto, id, classe, onde, caminhoImagem) {
+const criaElemento = (qual, texto, id, classe, onde, caminhoImagem) => {
   const elemento = document.createElement(qual);
   elemento.innerText = texto;
   elemento.id = id;
@@ -98,12 +98,10 @@ function criaElemento(qual, texto, id, classe, onde, caminhoImagem) {
 };
 
 //Função que adiciona os elementos do Header
-function adicionaElementosHeader() {
-  criaElemento('h1', 'Innovate Tech Store', '', 'title', elementoHeader);
-}
+const adicionaElementosHeader = () => criaElemento('h1', 'Innovate Tech Store', '', 'title', elementoHeader);
 
 //Função que adiciona os elementos da barra de navegação
-function adicionaElementosNav() {
+const adicionaElementosNav = () => {
   for (let index = 0; index < arrayLinksNavegacao.length; index += 1) {
     const elementoDiv = criaElemento('div', '', '', 'navElement', elementoNav);
     criaElemento('a', arrayLinksNavegacao[index], '', 'navLink', elementoDiv);
@@ -111,7 +109,7 @@ function adicionaElementosNav() {
 }
 
 //Função que adiciona os elementos de imagem em Main
-function adicionaImagensMain() {
+const adicionaImagensMain = () => {
   const sectionPrincipal = criaElemento('section', '', '', 'section-main', elementoMain);
 
   for (let index = 0; index < dadosDosProdutos.produto.length; index += 1) {
@@ -123,7 +121,7 @@ function adicionaImagensMain() {
 }
 
 //Função que adiciona os elementos do Aside
-function adicionaElementosIniciaisAside() {
+const adicionaElementosIniciaisAside = () => {
   let tamanhoDoArray = dadosDosProdutos.produto.length;
 
   criaElemento('p', 'Produto em destaque', '', 'aside-inicial', elementoAside);
@@ -133,12 +131,10 @@ function adicionaElementosIniciaisAside() {
 }
 
 // Função que adiciona o texto do Footer
-function adicionaRodape() {
-  criaElemento('p', "2024 Innovate Tech Store. Todos os direitos reservados.", '', "", elementoFooter)
-}
+const adicionaRodape = () => criaElemento('p', "2024 Innovate Tech Store. Todos os direitos reservados.", '', "", elementoFooter);
 
 // Função que adiciona evento de clique nos botões
-function eventoNosBotoes() {
+const eventoNosBotoes = () => {
   const buttons = document.querySelectorAll('button');
 
   for (let index = 0; index < buttons.length; index += 1) {
@@ -147,7 +143,7 @@ function eventoNosBotoes() {
 }
 
 //Função que adiciona os elementos do Aside
-function adicionaDetalhesAside(event) {
+const adicionaDetalhesAside = (event) => {
   elementoAside.innerText = "";
 
   const codigo = event.target.id;
@@ -173,7 +169,7 @@ function adicionaDetalhesAside(event) {
 }
 
 // window.onload
-window.onload = function () {
+window.onload = () => {
   adicionaElementosHeader();
   adicionaElementosNav();
   adicionaImagensMain();
