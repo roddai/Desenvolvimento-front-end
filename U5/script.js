@@ -114,12 +114,22 @@ const adicionaImagensMain = () => {
 
 //Função que adiciona os elementos do Aside
 const adicionaElementosIniciaisAside = () => {
-  let tamanhoDoArray = dadosDosProdutos.produto.length;
+  const tamanhoDoArray = dadosDosProdutos.produto.length;
+  const dadosRecuperados = JSON.parse(localStorage.getItem("produto"));
 
-  criaElemento('p', 'Produto em destaque', '', 'aside-inicial', elementoAside);
-  criaElemento('img', '', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[tamanhoDoArray - 1].imagem);
-  criaElemento('p', dadosDosProdutos.produto[tamanhoDoArray - 1].nome, 'prod-destaque', 'imagemProduto', elementoAside);
-  criaElemento('button', 'Mais info', dadosDosProdutos.produto[tamanhoDoArray - 1].codigo, 'botao', elementoAside);
+  if (!dadosRecuperados) {
+    criaElemento('p', 'Produto em destaque', '', 'aside-inicial', elementoAside);
+    criaElemento('img', '', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[tamanhoDoArray - 1].imagem);
+    criaElemento('p', dadosDosProdutos.produto[tamanhoDoArray - 1].nome, 'prod-destaque', 'imagemProduto', elementoAside);
+    criaElemento('button', 'Mais info', dadosDosProdutos.produto[tamanhoDoArray - 1].codigo, 'botao', elementoAside);
+  } else {
+    const meuProduto = dadosDosProdutos.produto.find((produto) => produto.codigo === dadosRecuperados.codigo);
+
+    criaElemento('p', 'Produto em destaque', '', 'aside-inicial', elementoAside);
+    criaElemento('img', '', '', "imagem-produto", elementoAside, meuProduto.imagem);
+    criaElemento('p', meuProduto.nome, 'prod-destaque', 'imagemProduto', elementoAside);
+    criaElemento('button', 'Mais info', meuProduto.codigo, 'botao', elementoAside);
+  }
 }
 
 // Função que adiciona o texto do Footer
@@ -135,7 +145,11 @@ const adicionaDetalhesAside = (event) => {
 
   const codigo = dadosDosProdutos.produto.find((objetoProduto) => parseInt(event.target.id) === objetoProduto.codigo);
 
-  Object.keys(dadosDosProdutos.produto[0]).forEach((propriedade) => propriedade === "imagem" ? criaElemento('img', '', '', "imagem-produto", elementoAside, codigo.imagem) : criaElemento('p', `${propriedade.charAt(0).toUpperCase() + propriedade.substring(1)}: ${codigo[propriedade]}`, '', `prod-${propriedade}`, elementoAside))
+  Object.keys(dadosDosProdutos.produto[0]).forEach((propriedade) => {
+    propriedade === "imagem" ? criaElemento('img', '', '', "imagem-produto", elementoAside, codigo.imagem) : criaElemento('p', `${propriedade.charAt(0).toUpperCase() + propriedade.substring(1)}: ${codigo[propriedade]}`, '', `prod-${propriedade}`, elementoAside);
+
+  })
+  localStorage.setItem("produto", JSON.stringify(codigo));
 }
 
 // window.onload
