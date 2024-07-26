@@ -84,13 +84,9 @@ const criaElemento = (qual, texto, id, classe, onde, caminhoImagem) => {
   elemento.id = id;
   elemento.className = classe;
 
-  if (qual === 'a') {
-    elemento.href = '';
-  }
+  if (qual === 'a') elemento.href = '';
 
-  if (qual === 'img') {
-    elemento.src = caminhoImagem;
-  }
+  if (qual === 'img') elemento.src = caminhoImagem;
 
   onde.appendChild(elemento);
 
@@ -101,12 +97,8 @@ const criaElemento = (qual, texto, id, classe, onde, caminhoImagem) => {
 const adicionaElementosHeader = () => criaElemento('h1', 'Innovate Tech Store', '', 'title', elementoHeader);
 
 //Função que adiciona os elementos da barra de navegação
-const adicionaElementosNav = () => {
-  for (let index = 0; index < arrayLinksNavegacao.length; index += 1) {
-    const elementoDiv = criaElemento('div', '', '', 'navElement', elementoNav);
-    criaElemento('a', arrayLinksNavegacao[index], '', 'navLink', elementoDiv);
-  }
-}
+const adicionaElementosNav = () => arrayLinksNavegacao
+  .forEach((link) => criaElemento('a', link, '', 'navLink', criaElemento('div', '', '', 'navElement', elementoNav)));
 
 //Função que adiciona os elementos de imagem em Main
 const adicionaImagensMain = () => {
@@ -134,38 +126,16 @@ const adicionaElementosIniciaisAside = () => {
 const adicionaRodape = () => criaElemento('p', "2024 Innovate Tech Store. Todos os direitos reservados.", '', "", elementoFooter);
 
 // Função que adiciona evento de clique nos botões
-const eventoNosBotoes = () => {
-  const buttons = document.querySelectorAll('button');
-
-  for (let index = 0; index < buttons.length; index += 1) {
-    buttons[index].addEventListener('click', adicionaDetalhesAside);
-  }
-}
+const eventoNosBotoes = () => document.querySelectorAll('button')
+  .forEach((button) => button.addEventListener('click', adicionaDetalhesAside));
 
 //Função que adiciona os elementos do Aside
 const adicionaDetalhesAside = (event) => {
   elementoAside.innerText = "";
 
-  const codigo = event.target.id;
+  const codigo = dadosDosProdutos.produto.find((objetoProduto) => parseInt(event.target.id) === objetoProduto.codigo);
 
-  const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
-
-  for (let index = 0; index < dadosDosProdutos.produto.length; index += 1) {
-    if (parseInt(codigo) === dadosDosProdutos.produto[index].codigo) {
-      const produtoSelecionado = dadosDosProdutos.produto[index];
-      console.log(produtoSelecionado);
-
-      for (let index = 0; index < chavesDeProdutos.length; index += 1) {
-        let texto = chavesDeProdutos[index];
-
-        if (texto === "imagem") {
-          criaElemento('img', '', '', "imagem-produto", elementoAside, produtoSelecionado.imagem);
-        } else {
-          criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${produtoSelecionado[texto]}`, '', `prod-${texto}`, elementoAside);
-        }
-      }
-    }
-  }
+  Object.keys(dadosDosProdutos.produto[0]).forEach((propriedade) => propriedade === "imagem" ? criaElemento('img', '', '', "imagem-produto", elementoAside, codigo.imagem) : criaElemento('p', `${propriedade.charAt(0).toUpperCase() + propriedade.substring(1)}: ${codigo[propriedade]}`, '', `prod-${propriedade}`, elementoAside))
 }
 
 // window.onload
