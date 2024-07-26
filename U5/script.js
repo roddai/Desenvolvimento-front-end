@@ -148,42 +148,6 @@ function eventoNosBotoes() {
 
 //Função que adiciona os elementos do Aside
 function adicionaDetalhesAside(event) {
-  // ETAPA 1
-  // criaElemento('p', `Código: ${dadosDosProdutos.produto[0].id}`, "codigo", elementoAside);
-  // criaElemento('p', `Produto: ${dadosDosProdutos.produto[0].nome}`, "produto", elementoAside);
-  // criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
-  // criaElemento('p', `Preço: ${dadosDosProdutos.produto[0].preco}`, "preco", elementoAside);
-  // criaElemento('p', `Descrição: ${dadosDosProdutos.produto[0].descricao}`, "descricao", elementoAside);
-  // criaElemento('p', `Fabricante: ${dadosDosProdutos.produto[0].fabricante}`, "fabricante", elementoAside);
-  // criaElemento('p', `Cor: ${dadosDosProdutos.produto[0].cor}`, "cor", elementoAside);
-
-  // ETAPA 2
-  // const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
-
-  // for (let index = 0; index < chavesDeProdutos.length; index += 1) {
-  //   let texto = chavesDeProdutos[index];
-
-  //   if (texto === "imagem") {
-  //     criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
-  //   } else {
-  //     criaElemento('p', `${texto}: ${dadosDosProdutos.produto[0][texto]}`, `prod-${texto}`, elementoAside);
-  //   }
-  // }
-
-  // ETAPA 3
-  // const chavesDeProdutos = Object.keys(dadosDosProdutos.produto[0]);
-
-  // for (let index = 0; index < chavesDeProdutos.length; index += 1) {
-  //   let texto = chavesDeProdutos[index];
-
-  //   if (texto === "imagem") {
-  //     criaElemento('img', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[0].imagem);
-  //   } else {
-  //     criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${dadosDosProdutos.produto[0][texto]}`, `prod-${texto}`, elementoAside);
-  //   }
-  // }
-
-  // ETAPA 4
   elementoAside.innerText = "";
 
   const codigo = event.target.id;
