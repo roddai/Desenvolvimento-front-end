@@ -124,12 +124,22 @@ function adicionaImagensMain() {
 
 //Função que adiciona os elementos do Aside
 function adicionaElementosIniciaisAside() {
-  let tamanhoDoArray = dadosDosProdutos.produto.length;
+  const tamanhoDoArray = dadosDosProdutos.produto.length;
+  const dadosRecuperados = JSON.parse(localStorage.getItem("produto"));
 
-  criaElemento('p', 'Produto em destaque', '', 'aside-inicial', elementoAside);
-  criaElemento('img', '', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[tamanhoDoArray - 1].imagem);
-  criaElemento('p', dadosDosProdutos.produto[tamanhoDoArray - 1].nome, 'prod-destaque', 'imagemProduto', elementoAside);
-  criaElemento('button', 'Mais info', dadosDosProdutos.produto[tamanhoDoArray - 1].codigo, 'botao', elementoAside);
+  if (!dadosRecuperados) {
+    criaElemento('p', 'Produto em destaque', '', 'aside-inicial', elementoAside);
+    criaElemento('img', '', '', "imagem-produto", elementoAside, dadosDosProdutos.produto[tamanhoDoArray - 1].imagem);
+    criaElemento('p', dadosDosProdutos.produto[tamanhoDoArray - 1].nome, 'prod-destaque', 'imagemProduto', elementoAside);
+    criaElemento('button', 'Mais info', dadosDosProdutos.produto[tamanhoDoArray - 1].codigo, 'botao', elementoAside);
+  } else {
+    const meuProduto = dadosDosProdutos.produto.find((produto) => produto.codigo === dadosRecuperados.codigo);
+
+    criaElemento('p', 'Produto em destaque', '', 'aside-inicial', elementoAside);
+    criaElemento('img', '', '', "imagem-produto", elementoAside, meuProduto.imagem);
+    criaElemento('p', meuProduto.nome, 'prod-destaque', 'imagemProduto', elementoAside);
+    criaElemento('button', 'Mais info', meuProduto.codigo, 'botao', elementoAside);
+  }
 }
 
 // Função que adiciona o texto do Footer
@@ -193,16 +203,14 @@ function adicionaDetalhesAside(event) {
   for (let index = 0; index < dadosDosProdutos.produto.length; index += 1) {
     if (parseInt(codigo) === dadosDosProdutos.produto[index].codigo) {
       const produtoSelecionado = dadosDosProdutos.produto[index];
-      console.log(produtoSelecionado);
-
       for (let index = 0; index < chavesDeProdutos.length; index += 1) {
         let texto = chavesDeProdutos[index];
-
         if (texto === "imagem") {
           criaElemento('img', '', '', "imagem-produto", elementoAside, produtoSelecionado.imagem);
         } else {
           criaElemento('p', `${texto.charAt(0).toUpperCase() + texto.substring(1)}: ${produtoSelecionado[texto]}`, '', `prod-${texto}`, elementoAside);
         }
+        localStorage.setItem("produto", JSON.stringify(produtoSelecionado));
       }
     }
   }
